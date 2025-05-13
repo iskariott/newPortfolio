@@ -37,6 +37,7 @@ function RenderMenuList(item) {
 export default function BaseHeader() {
     return (
         <header className={st.header}>
+            <Link href="#" className={st.logo} />
             <nav className={st.menu}>
                 <ul className={st.list}>
                     {menuItems.map((item, i) => (
