@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import st from './BaseHeader.module.scss';
+import { getRandom } from '@/services/getRandom';
 
 const menuItems = Array.from({ length: 4 }, (_, index) => ({
     title: `Item ${index + 1}`,
     depth: 0,
-    submenu: Array.from({ length: 2 }, (_, subIndex) => ({
+    submenu: Array.from({ length: Math.random() + getRandom(1, 4) }, (_, subIndex) => ({
         title: `Subitem ${subIndex + 1}`,
         depth: 1,
-        submenu: Array.from({ length: 3 }, (_, subSubIndex) => ({
+        submenu: Array.from({ length: getRandom(1, 4) }, (_, subSubIndex) => ({
             title: `Subsubitem ${subSubIndex + 1}`,
             depth: 2,
             link: '#',
