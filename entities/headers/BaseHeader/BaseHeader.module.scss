@@ -19,8 +19,18 @@
         position: relative;
         white-space: nowrap;
 
+        a,
         span {
             cursor: pointer;
+            display: block;
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
         }
 
         &:hover > ul {
