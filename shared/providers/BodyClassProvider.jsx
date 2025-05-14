@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export function BodyClassProvider() {
-    const isDesktop = useMediaQuery({ minWidth: 767 });
+    const isDesktop = useMediaQuery({ minWidth: 769 });
 
     useEffect(() => {
         const bodyClassList = document.body.classList;

@@ -40,3 +40,9 @@
         transform: rotate(-45deg);
     }
 }
+
+:global(body.desktop) {
+    .burgerContainer {
+        display: none;
+    }
+}
