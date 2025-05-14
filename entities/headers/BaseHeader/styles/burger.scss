@@ -1,0 +1,42 @@
+.burgerContainer {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.burgerButton,
+.burgerButton::after,
+.burgerButton::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    display: block;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.burgerButton::before {
+    transform: translateY(-8px);
+}
+.burgerButton::after {
+    transform: translateY(8px);
+}
+
+.burgerContainer.open {
+    .burgerButton {
+        background-color: transparent;
+    }
+    .burgerButton::before {
+        transform: rotate(45deg);
+    }
+    .burgerButton::after {
+        transform: rotate(-45deg);
+    }
+}
