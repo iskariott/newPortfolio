@@ -30,12 +30,12 @@
 .dot {
     width: 10px;
     height: 10px;
-    background: #ccc;
+    background: #333;
     border-radius: 50%;
     border: none;
     cursor: pointer;
 }
 
 .dot.active {
-    background: #333;
+    background: #ccc;
 }

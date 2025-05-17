@@ -28,12 +28,12 @@ export default function Slider() {
     };
 
     // Автопрокрутка;
-    useEffect(() => {
-        if (autoSlideInterval) {
-            autoSlideRef.current = setInterval(nextSlide, autoSlideInterval);
-        }
-        return () => clearInterval(autoSlideRef.current);
-    }, [currentSlide]);
+    // useEffect(() => {
+    //     if (autoSlideInterval) {
+    //         autoSlideRef.current = setInterval(nextSlide, autoSlideInterval);
+    //     }
+    //     return () => clearInterval(autoSlideRef.current);
+    // }, [currentSlide]);
 
     return (
         <div className={st.sliderContainer}>
