@@ -38,7 +38,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    background-color: rgb(58, 59, 59);
+    backdrop-filter: blur(90px);
     z-index: 100;
     padding-top: 5rem;
 
