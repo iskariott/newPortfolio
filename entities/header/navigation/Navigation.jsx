@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MENU_ITEMS } from './model/menuItems';
+import { MENU_ITEMS } from '../model/menuItems';
 import st from './Navigation.module.scss';
 
 export default function Navigation({ isBurgerOpen, openSubmenuIndex, toggleSubmenu }) {
