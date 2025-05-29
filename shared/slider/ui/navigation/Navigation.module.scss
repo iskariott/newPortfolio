@@ -1,0 +1,52 @@
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+// .pagination {
+//     position: absolute;
+//     bottom: 2rem;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     display: flex;
+//     gap: 8px;
+// }
+
+// .dot {
+//     width: 10px;
+//     height: 10px;
+//     background: #333;
+//     border-radius: 50%;
+//     border: none;
+//     cursor: pointer;
+// }
+
+// .dot.active {
+//     background: #ccc;
+// }
+
+:global(body.desktop) {
+    .navButton {
+        transition: background 0.2s ease;
+    }
+
+    .navButton:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
