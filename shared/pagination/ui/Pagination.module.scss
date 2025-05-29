@@ -1,0 +1,59 @@
+.number {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    appearance: none;
+
+    button {
+        border: none;
+        font: inherit;
+        padding: 6px 12px;
+        cursor: pointer;
+        background: #1d1d1d;
+        border-radius: 5px;
+        &.active {
+            background: #383838;
+            color: white;
+        }
+    }
+}
+
+.dot {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+
+    button {
+        width: 0.7rem;
+        height: 0.7rem;
+        background: #333;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        &.active {
+            background: #ccc;
+        }
+    }
+}
+
+:global(body.desktop) {
+    .dot,
+    .number {
+        transition: transform 0.2s ease;
+    }
+    .dot {
+        button:not(.active):hover {
+            transform: scale(1.2);
+        }
+    }
+    .number {
+        button:not(.active):hover {
+            transform: scale(1.1);
+        }
+    }
+}
