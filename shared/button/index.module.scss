@@ -1,0 +1,23 @@
+.btn {
+    border: none;
+    font: inherit;
+    background: #1d1d1d;
+    &.active {
+        background-color: #5e5d5d;
+    }
+}
+
+:global(body.desktop) {
+    .btn {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:not(.active):hover {
+            &.scale {
+                transform: scale(1.2);
+            }
+            &.opacity {
+                opacity: 0.8;
+            }
+        }
+    }
+}

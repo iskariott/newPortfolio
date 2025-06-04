@@ -1,5 +1,6 @@
 import { PAGINATION_VARIANT } from '@/shared/lib/constants';
 import st from './Pagination.module.scss';
+import StButton, { HOVER_EFFECT } from '@/shared/button';
 
 function getPaginationStyle(style) {
     switch (style) {
@@ -12,23 +13,19 @@ function getPaginationStyle(style) {
     }
 }
 
-export default function Pagination({
-    totalPages,
-    currentPage,
-    setPage,
-    style = PAGINATION_VARIANT.NUMBER,
-}) {
+export default function Pagination({ totalPages, currentPage, setPage, style }) {
     return (
         <>
             {totalPages > 1 && (
-                <div className={`${getPaginationStyle(style)}`}>
+                <div className={getPaginationStyle(style)}>
                     {Array.from({ length: totalPages }, (_, i) => (
-                        <button
+                        <StButton
                             key={i}
                             onClick={() => setPage(i)}
-                            className={currentPage === i ? st.active : ''}>
+                            isActive={currentPage === i}
+                            hoverEffect={HOVER_EFFECT.SCALE}>
                             {style === PAGINATION_VARIANT.NUMBER && i + 1}
-                        </button>
+                        </StButton>
                     ))}
                 </div>
             )}
