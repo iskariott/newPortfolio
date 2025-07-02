@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { BurgerMenu, Navigation } from '@/entities/header';
 
 export default function BaseHeader() {
-    const [isBurgerOpen, setBurgerOpen] = useState(false);
-    const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
-    const toggleSubmenu = (index) => {
+    const [isBurgerOpen, setBurgerOpen] = useState<boolean>(false);
+    const [isOpenSubmenuIndex, setOpenSubmenuIndex] = useState<string | null>(null);
+    const toggleSubmenu = (index: string) => {
         setOpenSubmenuIndex((prev) => (prev === index ? null : index));
     };
 
@@ -17,7 +17,7 @@ export default function BaseHeader() {
             <Link href="#" className={st.logo} />
             <Navigation
                 isBurgerOpen={isBurgerOpen}
-                openSubmenuIndex={openSubmenuIndex}
+                isOpenSubmenuIndex={isOpenSubmenuIndex}
                 toggleSubmenu={toggleSubmenu}
             />
             <BurgerMenu isBurgerOpen={isBurgerOpen} setBurgerOpen={setBurgerOpen} />

@@ -2,12 +2,20 @@
 import { useRef, useState } from 'react';
 import st from './Slider.module.scss';
 import Navigation from './navigation/Navigation';
+import type { ImageProps } from 'next/image';
+import type { FC } from 'react';
+import { TProductImageList } from '@/entities/card/model/product-list';
 
-export default function Slider({ images, ImageComponent }) {
-    const [currentSlide, setCurrentSlide] = useState(0);
+type SliderProps = {
+    images: TProductImageList;
+    ImageComponent: FC<ImageProps>;
+};
+
+export default function Slider({ images, ImageComponent }: SliderProps) {
+    const [currentSlide, setCurrentSlide] = useState<number>(0);
     const sliderRef = useRef(null);
 
-    const goToSlide = (index) => {
+    const goToSlide = (index: number) => {
         setCurrentSlide(index);
         sliderRef.current.style.transform = `translateX(-${index * 100}%)`;
     };
@@ -31,7 +39,7 @@ export default function Slider({ images, ImageComponent }) {
                         className={st.slide}
                         role="group"
                         aria-label={`Slide ${index + 1} of ${images.length}`}>
-                        <ImageComponent src={slide} />
+                        <ImageComponent src={slide.path} alt={slide.alt} />
                     </div>
                 ))}
             </div>

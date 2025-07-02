@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 import { BodyClassProvider } from '@/shared/providers/BodyClassProvider';
+import { TChildren } from '@/shared/types/common.types';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -18,7 +19,7 @@ export const metadata = {
     description: 'Simple portfolio website',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: TChildren }) {
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable}`}>

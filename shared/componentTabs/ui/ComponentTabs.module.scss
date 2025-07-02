@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    // justify-content: center;
+    // gap: 3rem;
+    border-radius: 1rem;
+}
+
+.btn {
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    border-bottom: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 3rem;
+}
+
+.listItem:first-child .btn {
+    border-top-left-radius: 1rem;
+}
+.listItem:last-child .btn {
+    border-top-right-radius: 1rem;
+}
+
+.listItem {
+}

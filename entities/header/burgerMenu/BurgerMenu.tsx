@@ -1,6 +1,12 @@
+import { TSetState } from '@/shared/types/common.types';
 import st from './BurgerMenu.module.scss';
 
-export default function BurgerMenu({ isBurgerOpen, setBurgerOpen }) {
+type BurgerMenuProps = {
+    isBurgerOpen: boolean;
+    setBurgerOpen: TSetState<boolean>;
+};
+
+export default function BurgerMenu({ isBurgerOpen, setBurgerOpen }: BurgerMenuProps) {
     return (
         <div
             onClick={() => setBurgerOpen(!isBurgerOpen)}
