@@ -13,11 +13,9 @@ type SliderProps = {
 
 export default function Slider({ images, ImageComponent }: SliderProps) {
     const [currentSlide, setCurrentSlide] = useState<number>(0);
-    const sliderRef = useRef(null);
 
     const goToSlide = (index: number) => {
         setCurrentSlide(index);
-        sliderRef.current.style.transform = `translateX(-${index * 100}%)`;
     };
 
     const nextSlide = () => {
@@ -32,16 +30,16 @@ export default function Slider({ images, ImageComponent }: SliderProps) {
 
     return (
         <div className={st.sliderContainer}>
-            <div className={st.slider} ref={sliderRef}>
-                {images.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={st.slide}
-                        role="group"
-                        aria-label={`Slide ${index + 1} of ${images.length}`}>
-                        <ImageComponent src={slide.path} alt={slide.alt} />
-                    </div>
-                ))}
+            <div className={st.slider}>
+                <div
+                    className={st.slide}
+                    role="group"
+                    aria-label={`Slide ${currentSlide + 1} of ${images.length}`}>
+                    <ImageComponent
+                        src={images[currentSlide].path}
+                        alt={images[currentSlide].alt}
+                    />
+                </div>
             </div>
             <Navigation
                 prevSlide={prevSlide}
