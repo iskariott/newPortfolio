@@ -1,6 +1,9 @@
+import { productImages } from '@/entities/card/model/image-imports';
+import type { StaticImageData } from 'next/image';
+
 export type TProductImage = {
     alt: string;
-    path: string;
+    path: StaticImageData;
 };
 
 export type TProductImageList = TProductImage[];
@@ -9,18 +12,17 @@ export type TProductItem = {
     index: number;
     title: string;
     article: string;
-    images: { alt: string; path: string }[];
+    images: { alt: string; path: StaticImageData }[];
 };
 
 export type TProductList = TProductItem[];
 
-export const PRODUCT_LIST: TProductList = Array.from({ length: 8 }, (_, idx) => ({
+export const PRODUCT_LIST: TProductList = productImages.map((p, idx) => ({
     index: idx + 1,
     title: `Product ${idx + 1}`,
     article: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, sapiente',
-    images: [
-        { alt: `card image ${idx + 1}`, path: `/images/product${idx + 1}/1.webp` },
-        { alt: `card image ${idx + 1}`, path: `/images/product${idx + 1}/2.webp` },
-        { alt: `card image ${idx + 1}`, path: `/images/product${idx + 1}/3.webp` },
-    ],
+    images: p.map((img, im_idx) => ({
+        alt: `Product ${idx + 1} card image ${im_idx + 1}`,
+        path: img,
+    })),
 }));
