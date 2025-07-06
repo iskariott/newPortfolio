@@ -7,8 +7,8 @@ const files: string[] = [];
 const imports: string[] = [];
 const groups: string[][] = [];
 
-function generateImageName(folderName: string, file: string) {
-    return `img_${folderName.match(/\d+$/)}_${file.split('.')[0]}`;
+function generateImageName(folderName: string, file_idx: number) {
+    return `img_${folderName.match(/\d+$/)}_${file_idx}`;
 }
 
 fs.readdirSync(publicDir).forEach((folderName) => {
@@ -17,12 +17,12 @@ fs.readdirSync(publicDir).forEach((folderName) => {
     const folderPath = path.join(publicDir, folderName);
     const imageFiles = fs
         .readdirSync(folderPath)
-        .filter((f) => f.endsWith('.webp'))
-        .sort(); // важливо для порядку: 1.webp, 2.webp...
+        .filter((f) => ['.webp', '.jpg', '.jpeg', '.png'].some((ext) => f.endsWith(ext)));
+    // .sort(); // важливо для порядку: 1.webp, 2.webp...
     const group: string[] = [];
-    imageFiles.forEach((file) => {
+    imageFiles.forEach((file, idx) => {
         const relativePath = `@/public/images/${folderName}/${file}`;
-        const importName = generateImageName(folderName, file);
+        const importName = generateImageName(folderName, idx + 1);
         imports.push(`import ${importName} from '${relativePath}';`);
         group.push(importName);
     });
