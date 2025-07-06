@@ -19,5 +19,14 @@
     border-top-right-radius: 1rem;
 }
 
-.listItem {
+.description {
+    padding: 2rem 0;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    // text-align: center;
+    // min-width: 300px;
+    // width: fit-content;
+}
+
+.btn.active {
+    background-color: inherit;
 }
